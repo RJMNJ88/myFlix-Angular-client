@@ -5,7 +5,7 @@ import { Observable, throwError, catchError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://blooming-wildwood-80599.herokuapp.com';
 @Injectable({
   providedIn: 'root'
 })
@@ -126,7 +126,10 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-
+  private extractResponseData(res: Response): any {
+    const body = res;
+    return body || { };
+  }
 
   // Error handling
   private handleError(error: HttpErrorResponse): any {
