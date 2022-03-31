@@ -1,0 +1,45 @@
+<div>
+    <mat-card
+        *ngFor="let favorite of favorites; let i = index"
+    >
+        <mat-card-header>
+            <mat-card-title> {{ favorite.Title }} </mat-card-title>
+            <mat-card-subtitle>Directed by: {{ favorite.Director.Name }} </mat-card-subtitle>
+        </mat-card-header>
+
+        <div class="image-container">
+            <img src='{{favorite.ImagePath}}'/>
+        </div>
+
+        <mat-card-actions>
+            <button
+                mat-button
+                color="primary"
+                (click)='openGenre(favorite.Genre[0])'
+            >
+                Genre
+            </button>
+            <button
+                mat-button
+                color="primary"
+                (click)='openDirector(favorite.Director.Name, favorite.Director.Bio, favorite.Director.Born)'
+            >
+                Director
+            </button>
+            <button
+                mat-button
+                color="primary"
+                (click)='openSynopsis(favorite.Title, favorite.ImagePath, favorite.Description)'
+            >
+                Synopsis
+            </button>
+            <button 
+                mat-icon-button 
+                (click)="deleteFavoriteMovie(favorite._id, favorite.title)"
+            >
+                <mat-icon class="remove-btn">favorite</mat-icon>
+            </button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>

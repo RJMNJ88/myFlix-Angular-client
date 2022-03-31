@@ -20,7 +20,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component'; 
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { GenreViewComponent } from './genre-view/genre-view.component';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
+import { UserFavoritesComponent } from './user-favorites/user-favorites.component'; 
 
 
 const appRoutes: Routes = [
@@ -35,7 +39,11 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    GenreViewComponent,
+    DirectorViewComponent,
+    SynopsisViewComponent,
+    UserFavoritesComponent
   ],
   imports: [
     BrowserModule,
