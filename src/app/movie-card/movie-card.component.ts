@@ -95,25 +95,35 @@ export class MovieCardComponent {
   }
 
   // Genre dialog box
-  openGenre(id: string): void {
-    let name;
-    let description;
+  
+  // openGenre(id: string): void {
+  //   let name;
+  //   let description;
 
-    for(let i=0; i < this.genres.length; i++) {
-      if(this.genres[i]._id == id) {
-        name = this.genres[i].Name;
-        description = this.genres[i].Description;
-      }
-    }
+  //   for(let i=0; i < this.genres.length; i++) {
+  //     if(this.genres[i]._id == id) {
+  //       name = this.genres[i].Name;
+  //       description = this.genres[i].Description;
+  //     }
+  //   }
+  //   this.dialog.open(GenreViewComponent, {
+  //     data: {
+  //       Name: name,
+  //       Description: description,
+  //     },
+  //     width: '28rem'
+  //   })
+  // }
+
+  openGenre(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
       data: {
         Name: name,
         Description: description,
       },
-      width: '60rem'
-    })
+      width: '28rem'
+    });
   }
-
 
   // Director dialog box
   openDirector(name: string, bio: string, born: Date): void {
@@ -121,9 +131,8 @@ export class MovieCardComponent {
       data: {
         Name: name,
         Bio: bio,
-        Born: born
       },
-      width: '60rem'
+      width: '28rem'
     });
   }
 
@@ -135,7 +144,7 @@ export class MovieCardComponent {
         ImagePath: imagePath,
         Description: description
       },
-      width: '60rem'
+      width: '28rem'
     })
   }
 

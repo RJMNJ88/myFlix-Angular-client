@@ -1,9 +1,11 @@
-<mat-card>
-    <mat-dialog-content><b>Bio:</b> {{ data.Bio }} </mat-dialog-content>
-    <mat-dialog-content><b>Born:</b> {{ data.Born }} </mat-dialog-content>
+<mat-card class="card">
+    <mat-dialog-content class="name-content"><span>Name:</span> {{ data.Name }} </mat-dialog-content>
+    <mat-dialog-content class="bio-content"><span>Bio:</span> {{ data.Bio }} </mat-dialog-content>
     <mat-card-actions>
         <button
-        mat-dialog-close
+            class="btn"
+            mat-button
+            mat-dialog-close
         >
             Close
         </button>
