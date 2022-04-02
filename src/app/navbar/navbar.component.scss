@@ -1,0 +1,36 @@
+$purple: #9867c5;
+$grey: #808080;
+
+.nav-bar {
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    .logo-container {
+
+        .logo {
+            font-size: 2.5rem;
+            color: $purple;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .nav-container {
+
+        button {
+            font-size: 1.3rem;
+            transition: .2s linear;
+            color: $grey;
+
+            &:hover {
+                color: $purple;
+                background: none;
+            }
+        }
+    }
+}

@@ -25,7 +25,8 @@ import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
 import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
 import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
-import { UserPageComponent } from './user-page/user-page.component'; 
+import { UserPageComponent } from './user-page/user-page.component';
+import { NavbarComponent } from './navbar/navbar.component'; 
 
 
 const appRoutes: Routes = [
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     DirectorViewComponent,
     SynopsisViewComponent,
     UserFavoritesComponent,
-    UserPageComponent
+    UserPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

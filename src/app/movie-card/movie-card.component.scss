@@ -11,7 +11,8 @@
 //     transition: .25s linear;
 // }
 
-$purple: #6200EE;
+$purple: #9867c5;
+$grey: #808080;
 
 @mixin grid($val) {
     display: grid;
@@ -62,7 +63,7 @@ $purple: #6200EE;
             
 
             mat-card-title {
-                
+                color: $grey;
             }
         }
 
@@ -90,7 +91,6 @@ $purple: #6200EE;
             display: flex;
             align-items: center;
             justify-content: center;
-            
 
             button {
                 padding: 0;
@@ -114,12 +114,12 @@ $purple: #6200EE;
             }
             
             .like-btn {
-                position: absolute;
-                right: 0;
+                // position: absolute;
+                // right: 0;
                 border: none;
                 color: $purple;
                 transition: .2s linear;
-                margin: 0;
+                margin-left: 1.5rem;
 
                 &:hover {
                     transform: scale(1.05);

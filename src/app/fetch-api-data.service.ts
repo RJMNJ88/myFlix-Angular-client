@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://blooming-wildwood-80599.herokuapp.com/';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -71,11 +72,19 @@ export class UserRegistrationService {
   // Get user profile
   public getUserProfile(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users/:Username', {headers: new HttpHeaders({
+    return this.http.get(apiUrl + `users/:Username`, {headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
+  // public getUserProfile(): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const UserID = localStorage.getItem('UserID');
+  //   return this.http.get(apiUrl + `users/${UserID}`, {headers: new HttpHeaders({
+  //       Authorization: 'Bearer ' + token,
+  //     })
+  //   }).pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
   
   // Get favorite movie
   public getUserFavorites(): Observable<any> {
@@ -87,10 +96,18 @@ export class UserRegistrationService {
   }
   
   // Add favorite movie
+  // public addFavoriteMovie(MovieID: string): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const username = localStorage.getItem('user');
+  //   return this.http.post(apiUrl + `users/${username}/movies/${MovieID}`, {}, {headers: new HttpHeaders({
+  //       Authorization: 'Bearer ' + token,
+  //     })
+  //   }).pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
   public addFavoriteMovie(MovieID: string): Observable<any> {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    return this.http.post(apiUrl + 'users/${username}/movies/${MovieID}', {headers: new HttpHeaders({
+    const UserID = localStorage.getItem('UserID');
+    return this.http.post(apiUrl + `users/${UserID}/movies/${MovieID}`, {}, {headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -100,7 +117,7 @@ export class UserRegistrationService {
   public deleteFavoriteMovie(MovieID: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.delete(apiUrl + 'users/${username}/movies/${MovieID}', {headers: new HttpHeaders({
+    return this.http.delete(apiUrl + `users/${username}/movies/${MovieID}`, {headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
