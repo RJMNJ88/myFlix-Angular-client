@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 // Component imports
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
@@ -26,12 +27,14 @@ import { DirectorViewComponent } from './director-view/director-view.component';
 import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
 import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
 import { UserPageComponent } from './user-page/user-page.component';
-import { NavbarComponent } from './navbar/navbar.component'; 
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserEditComponent } from './user-edit/user-edit.component'; 
 
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: UserPageComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -47,7 +50,8 @@ const appRoutes: Routes = [
     SynopsisViewComponent,
     UserFavoritesComponent,
     UserPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

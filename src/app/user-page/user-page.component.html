@@ -1,70 +1,71 @@
 <app-navbar></app-navbar>
+<h2>Hello, {{user.Username}} </h2>
 <div>
     <mat-card>
         <mat-card-header>
-            <mat-card-title>Hello {{ user.Username }} </mat-card-title>
-            <mat-card-subtitle>Update Profile: </mat-card-subtitle>
+            <mat-card-title>User Information:</mat-card-title>
         </mat-card-header>
-
-        <form>
-            <mat-form-field>
-                <input
-                    matInput
-                    [(ngModel)]='userData.Username'
-                    placeholder="Username"
-                    value={{ user.Username }}
-                    type='text'
-                    name="Username"
-                    required
-                >
-            </mat-form-field>
-            <mat-form-field>
-                <input
-                    matInput
-                    [(ngModel)]='userData.Password'
-                    placeholder="Password"
-                    value={{ user.Password }}
-                    type='text'
-                    name="Password"
-                    required
-                >
-            </mat-form-field>
-            <mat-form-field>
-                <input
-                    matInput
-                    [(ngModel)]='userData.Email'
-                    placeholder="Email"
-                    value={{ user.Email }}
-                    type='text'
-                    name="Email"
-                    required
-                >
-            </mat-form-field>
-            <mat-form-field>
-                <input
-                    matInput
-                    [(ngModel)]='userData.Birthday'
-                    placeholder="Birthday"
-                    value={{ user.Birthday }}
-                    type='text'
-                    name="Birthday"
-                    required
-                >
-            </mat-form-field>
-        </form>
-        <mat-card-actions>
+        <mat-card-content>
+            <h3>Username: {{ this.user.Username }}</h3>
+            <h3>Email: {{ this.user.Email }}</h3>
+            <h3>Birthday: {{ this.user.Birthday }}</h3>
+            <br>
             <button
                 mat-raised-button
-                (click)="editUserProfile()"
+                (click)="openEditUserProfile()"
             >
                 Edit Profile
             </button>
             <button
                 mat-raised-button
-                (click)="deleteUserProfile()"
+                (click)="deleteProfile()"
             >
                 Delete Profile
             </button>
-        </mat-card-actions>
+        </mat-card-content>
     </mat-card>
 </div>
+
+<div>
+    <div *ngFor="let movie of favs" >
+        <mat-card class="card" >
+            <mat-card-header class="card-header">
+                <mat-card-title>{{movie.Title}}</mat-card-title>
+                <!-- <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle> -->
+            </mat-card-header>
+            <mat-card-content class="img-container">
+                <img src={{movie.ImagePath}} alt= {{movie.Title}} />
+            </mat-card-content>
+            <mat-card-actions class="btn-container">
+                <button
+                    class="btn"
+                    mat-button
+                    color="primary"
+                    (click)='openGenre(movie.Genre.Name, movie.Genre.Description)'
+                >
+                    Genre
+                </button>
+                <button
+                    class="btn"
+                    mat-button
+                    color="primary"
+                    (click)='openDirector(movie.Director.Name, movie.Director.Bio)'
+                >
+                    Director
+                </button>
+                <button
+                    class="btn"
+                    mat-button
+                    color="primary"
+                    (click)='openSynopsis(movie.Title, movie.ImagePath, movie.Description)'
+                >
+                    Synopsis
+                </button>
+                <button class="like-btn" mat-icon-button (click)="removeFav(movie._id)">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+        

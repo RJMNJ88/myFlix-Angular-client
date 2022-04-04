@@ -14,7 +14,7 @@ export class DirectorViewComponent implements OnInit {
     public data: {
       Name: string,
       Bio: string,
-      Born: Date
+      // Born: Date
     }
   ) { }
 

@@ -26,18 +26,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['movies']);
   }
 
-  // User favorites page
-  toFavorites(): void {
-    this.router.navigate(['my-list']);
-  }
-
   // User profile page
   toProfile(): void {
     this.router.navigate(['profile']);
   }
-  // toProfile(): void {
-  //   this.router.navigate(['profile']);
-  // }
 
   // Log out user
   logOut(): void {

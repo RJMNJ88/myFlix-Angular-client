@@ -21,7 +21,7 @@
                 class="btn"
                 mat-button
                 color="primary"
-                (click)='openDirector(movie.Director.Name, movie.Director.Bio, movie.Director.Born)'
+                (click)='openDirector(movie.Director.Name, movie.Director.Bio)'
             >
                 Director
             </button>
@@ -33,9 +33,11 @@
             >
                 Synopsis
             </button>
-            <button class="like-btn" mat-icon-button (click)="toggleFavorites(movie)">
-                <mat-icon *ngIf="!isFavorited(movie._id)">favorite_border</mat-icon>
-                <mat-icon *ngIf="isFavorited(movie._id)">favorite</mat-icon>
+            <button class="like-btn" mat-icon-button (click)="toggleFavs(movie._id)">
+                <mat-icon >favorite</mat-icon>
+                <mat-icon >favorite_border</mat-icon>
+                <!-- <mat-icon *ngIf="favCheck(movie._id)">favorite</mat-icon>
+                <mat-icon *ngIf="!favCheck(movie._id)">favorite_border</mat-icon> -->
             </button>
         </mat-card-actions>
     </mat-card>
