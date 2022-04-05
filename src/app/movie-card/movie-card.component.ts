@@ -39,7 +39,7 @@ export class MovieCardComponent implements OnInit {
   getCurrentUser(): void {
     this.fetchApiData.getUserProfile().subscribe((resp: any) => {
       this.currentUser = resp;
-      this.currentFavs = resp.Favorites;
+      this.currentFavs = resp.FavoriteMovies;
       return (this.currentUser, this.currentFavs);
     });
   }
@@ -124,69 +124,5 @@ export class MovieCardComponent implements OnInit {
       return this.isInFavs;
     };
   }
-  
-  
+    
 }
-
-
-
-
-
-
-
-
-// addFavoriteMovie(MovieID: string, title: string): void {
-//   this.fetchApiData.addFavoriteMovie(MovieID).subscribe((resp: any) => {
-//     this.snackBar.open(`${title} has been added to your favorites !`, 'OK', {
-//       duration: 3000
-//     });
-//     this.ngOnInit();
-//   });
-//   return this.getUserFavorites();
-// }
-
-// deleteFavoriteMovie(MovieID: string, title: string): void {
-//   this.fetchApiData.deleteFavoriteMovie(MovieID).subscribe((resp: any) => {
-//     this.snackBar.open(`${title} has been removed from your favorites !`, 'OK', {
-//       duration: 3000
-//     });
-//     this.ngOnInit();
-//   });
-//   return this.getUserFavorites();
-// }
-
-// Check favorites list
-// isFavorited(MovieID: string): boolean {
-//   return this.favorites.includes(MovieID);
-// }
-
-// Add or remove from favorites list
-// toggleFavorites(movie: any): void {
-  //   this.isFavorited(movie._id)
-  //     ? this.deleteFavoriteMovie(movie._id, movie.Title)
-  //     : this.addFavoriteMovie(movie._id, movie.Title);
-  // }
-
-// getGenre(): void {
-//   this.fetchApiData.getGenre().subscribe((resp: any) => {
-//       this.genres = resp;
-//       console.log(this.genres);
-//       return this.genres;
-//   });
-// }
-
-// getDirector(): void {
-//   this.fetchApiData.getDirector().subscribe((resp: any) => {
-//       this.directors = resp;
-//       console.log(this.directors);
-//       return this.directors;
-//   });
-// }
-
-// getUserFavorites(): void {
-//   this.fetchApiData.getUserFavorites().subscribe((resp: any) => {
-//       this.favorites = resp;
-//       console.log(this.favorites);
-//       return this.favorites;
-//   });
-// }

@@ -34,10 +34,10 @@
                 Synopsis
             </button>
             <button class="like-btn" mat-icon-button (click)="toggleFavs(movie._id)">
-                <mat-icon >favorite</mat-icon>
-                <mat-icon >favorite_border</mat-icon>
-                <!-- <mat-icon *ngIf="favCheck(movie._id)">favorite</mat-icon>
-                <mat-icon *ngIf="!favCheck(movie._id)">favorite_border</mat-icon> -->
+                <!-- <mat-icon >favorite</mat-icon>
+                <mat-icon >favorite_border</mat-icon> -->
+                <mat-icon *ngIf="favCheck(movie._id)">favorite</mat-icon>
+                <mat-icon *ngIf="!favCheck(movie._id)">favorite_border</mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>

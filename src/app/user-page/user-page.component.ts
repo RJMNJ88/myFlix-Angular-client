@@ -8,6 +8,7 @@ import { UserEditComponent } from '../user-edit/user-edit.component';
 import { SynopsisViewComponent } from '../synopsis-view/synopsis-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
   selector: 'app-user-page',
@@ -16,17 +17,9 @@ import { GenreViewComponent } from '../genre-view/genre-view.component';
 })
 
 export class UserPageComponent implements OnInit {
+  movies: any[] = [];
   user: any = localStorage.getItem('username');
   favs: any = null;
-  // userString: any = localStorage.getItem('user');
-  // user: any = JSON.parse(this.userString);
-
-  // @Input() userData = {
-  //   Username: this.user.Username,
-  //   Password: this.user.Password,
-  //   Email: this.user.Email,
-  //   Birthday: this.user.Birthday
-  // }
 
   constructor(
     public dialog: MatDialog,
@@ -42,7 +35,8 @@ export class UserPageComponent implements OnInit {
   getCurrentUser(): void {
     this.fetchApiData.getUserProfile().subscribe((resp: any) => {
       this.user = resp;
-      this.favs = resp.Favorites;
+      this.favs = resp.FavoriteMovies;
+      // this.favs = resp.Favorites;
       console.log(this.user)
       return(this.user, this.favs);
     });
@@ -101,8 +95,8 @@ export class UserPageComponent implements OnInit {
     return this.favs;
   }
 
-  removeFav(id: string): void {
-    this.fetchApiData.deleteFavoriteMovie(id).subscribe((res: any) => {
+  removeFav(movieId: string): void {
+    this.fetchApiData.deleteFavoriteMovie(movieId).subscribe((res: any) => {
       this.snackBar.open('Removed from favorites.', 'OK', {
         duration: 2000,
       });
