@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<h2>Hello, {{user.Username}} </h2>
-<div>
-    <mat-card>
+<!-- <h2 class="page-title">Hello, {{user.Username}} ! </h2> -->
+<div class="user-info-container">
+    <mat-card class="user-info-card">
         <mat-card-header>
             <mat-card-title>User Information:</mat-card-title>
         </mat-card-header>
@@ -11,12 +11,14 @@
             <h3>Birthday: {{ this.user.Birthday }}</h3>
             <br>
             <button
+                class="btn"
                 mat-raised-button
                 (click)="openEditUserProfile()"
             >
                 Edit Profile
             </button>
             <button
+                class="btn"
                 mat-raised-button
                 (click)="deleteProfile()"
             >
@@ -26,8 +28,10 @@
     </mat-card>
 </div>
 
-<div>
-    <div *ngFor="let movie of favs" >
+<h2 class="page-title" id="fav-title">Favorites:</h2>
+
+<div class="main-page">
+    <div  *ngFor="let movie of favMovies" >
         <mat-card class="card" >
             <mat-card-header class="card-header">
                 <mat-card-title>{{movie.Title}}</mat-card-title>

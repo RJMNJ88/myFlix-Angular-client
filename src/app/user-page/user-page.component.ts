@@ -20,6 +20,7 @@ export class UserPageComponent implements OnInit {
   movies: any[] = [];
   user: any = localStorage.getItem('username');
   favs: any = null;
+  favMovies: any[] = [];
 
   constructor(
     public dialog: MatDialog,
@@ -30,6 +31,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCurrentUser();
+    this.getFavs();
   }
 
   getCurrentUser(): void {
@@ -87,7 +89,9 @@ export class UserPageComponent implements OnInit {
     this.fetchApiData.getAllMovies().subscribe((res: any) => {
       movies = res;
       movies.forEach((movie: any) => {
-        if(this.user.favorites.includes(movie._id)) {
+        if(this.user.FavoriteMovies.includes(movie._id)) {
+        // if(this.user.favorites.includes(movie._id)) {
+          this.favMovies.push(movie);
           this.favs.push(movie);
         }
       });
